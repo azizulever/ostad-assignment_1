@@ -1,4 +1,4 @@
-import '../task.dart';
+import 'task.dart';
 
 void main() {
   Car bmw = Car(brand: 'BMW', model: 'M-Series', year: 2010);
