@@ -1,36 +1,24 @@
-class Car {
-  late String brand;
-  late String model;
-  late int year;
-  double milesDriven = 0;
-  static int numberOfCars = 0;
+abstract class Vehicle {
+  int _speed = 0;
 
-  Car({required this.brand, required this.model, required this.year}) {
-    numberOfCars++;
+  void move();
+
+  void setSpeed(int speed) {
+    _speed = speed;
   }
 
-  void drive(double miles) {
-    milesDriven += miles;
-  }
+  int get speed => _speed;
+}
 
-  double getMilesDriven() {
-    return milesDriven;
+class Car extends Vehicle {
+  @override
+  void move() {
+    print('The car is moving at $_speed km/h');
   }
+}
 
-  String getBrand() {
-    return brand;
-  }
-
-  String getModel() {
-    return model;
-  }
-
-  int getYear() {
-    return year;
-  }
-
-  int getAge() {
-    int currentYear = DateTime.now().year;
-    return (currentYear - year);
-  }
+void main() {
+  Car myCar = Car();
+  myCar.setSpeed(80);
+  myCar.move();
 }
